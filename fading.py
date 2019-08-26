@@ -1,3 +1,5 @@
+__author__ = "Joshua Akangah"
+
 import pygame
 
 #screen = pygame.display.set_mode((600, 500))
@@ -5,6 +7,15 @@ pygame.init()
 
 class FadingText():
     def __init__(self, text, color, size, fadespeed):
+        """
+        params:
+            text: Text to render
+            color: Color to render text in
+            size: Size of text
+            fadespeed: Speed at which to fade out text
+        return:
+            None
+        """
         self.text = text
         self.color = color
         self.size = size
@@ -15,6 +26,11 @@ class FadingText():
         self.alpha = 255
 
     def render(self):
+        """
+        params: None
+        return: None
+        Function to set the rendered text
+        """
         try:
             self.rendered = self.font.render(f"{self.text}", True, self.color)
         except:
@@ -22,6 +38,12 @@ class FadingText():
         #screen.blit(self.rendered, (100,100))
 
     def fade(self, display, x, y):
+        """
+        params:
+            display: Main display to show the fading text on
+            x: X position you want to display text
+            y: Y position you want to display text
+        """
         try:
             temp = pygame.Surface((self.rendered.get_width(), self.rendered.get_height())).convert()
             temp.blit(display, (-x,-y))
@@ -33,39 +55,19 @@ class FadingText():
         except:
             pass
         
+"""
+f = FadingText("LOLS", [255,255,255], 32, 10)
 
-# f = FadingText("LOLS", [255,255,255], 32, 10)
+done = False
+while not done:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            done = True
+            pygame.quit()
 
-# done = False
+    screen.fill((0,0,0))
 
-# while not done:
-#     for event in pygame.event.get():
-#         if event.type == pygame.QUIT:
-#             done = True
-#             pygame.quit()
-
-#     screen.fill((0,0,0))
-
-#     f.render()
-#     f.fade(screen)
-
-#     pygame.display.update()
-
-
-
-
-        # if self.pos.y < ball.pos.y and self.pos.y + self.rect.height > ball.pos.y + ball.rect.height:
-        #         if ball.pos.x + ball.rect.width >= self.pos.x and ball.pos.x + ball.rect.width <= (self.pos.x+self.rect.width/2):
-        #             ball.xspeed = -self.bounceSpeed
-        #             self.kill()
-        #         else:
-        #             ball.xspeed = self.bounceSpeed
-        #             self.kill()
-        #     if self.pos.x < ball.pos.x and self.pos.x + self.rect.width > ball.pos.x + ball.rect.width:
-        #         if ball.pos.y + ball.rect.height >= self.pos.y and self.pos.y + self.rect.height <= (self.pos.y + self.rect.height/2):
-        #             ball.yspeed = -self.bounceSpeed
-        #             self.kill()
-        #         else: 
-        #             ball.yspeed = self.bounceSpeed
-        #             self.kill()
-        
+    f.render()
+    f.fade(screen)
+    pygame.display.update()
+"""
