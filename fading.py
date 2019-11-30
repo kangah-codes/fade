@@ -10,7 +10,7 @@ class FadingText():
         """
         params:
             text: Text to render
-            color: Color to render text in
+            color: Color to render text in RGB format
             size: Size of text
             fadespeed: Speed at which to fade out text
         return:
@@ -56,7 +56,9 @@ class FadingText():
             pass
         
 """
-f = FadingText("LOLS", [255,255,255], 32, 10)
+example
+
+f = FadingText("Level 1", [255,255,255], 32, 10)
 
 done = False
 while not done:
